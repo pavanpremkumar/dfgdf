@@ -1,0 +1,121 @@
+<html>
+    <head>
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;  
+        background-image: "hexa.jpg";
+    }
+    input[type=text], input[type=password] {
+      width: 130%;
+      padding: 12px 20px;
+      margin: 9px 0;
+      display: inline-block;
+      border: 1px solid rgb(34, 117, 122);
+      box-sizing: 20px;
+    }
+    button {
+      background-color: rgb(17, 68, 141);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      text-align : center;
+      box-sizing:border-box;
+      width: 150%;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .container {
+      padding: 10px;
+    }
+    span.pwd {
+      float: right;
+      padding-top: 11px;
+    }
+    @media screen and (max-width: 50px) {
+      span.pwd {
+         display: block;
+         float: none;
+      }
+      
+    }
+    form { 
+    margin: 0 auto; 
+    width:270px;
+    text-align:left;
+    height:200px;
+    }
+    .hero-image {
+      background-image: url("https://backgroundcheckall.com/wp-content/uploads/2017/12/login-background-images-for-website-6.jpg");
+      height: 605px;
+      width:1350px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    img {
+      display: block;
+      /* width:50%; */
+      border-radius: 50%;
+      margin-left: auto;
+  margin-right: auto;
+    }
+    .fa {
+  margin-left: -12px;
+  margin-right: 8px;
+}
+    </style>
+    </head>
+    <body>
+            <div class="hero-image">
+    <br/><br/><br/><br/><br/>
+    
+    
+    <form name="frmlogin" (ngSubmit)="login()">
+        <div class="image">
+            <div class="image-header" *ngIf="user==1000">
+              <img src="https://media.licdn.com/dms/image/C5103AQHX7eQ0lCXnmQ/profile-displayphoto-shrink_200_200/0?e=1556150400&v=beta&t=f6bZjtj2dn1-si8yf8z9-JXi4xgMURjVDM8lJKEXiFE"
+               alt="Sahil" width="200px" height="200px" class="center" class="rounded-circle img-responsive" >
+            </div>
+            <div class="image-header" *ngIf="user==2000">
+                <img src="https://plus.google.com/u/0/_/focus/photos/public/AIbEiAIAAABDCI_NzuzCyJb5LCILdmNhcmRfcGhvdG8qKDQ1NDU0MWI5N2U0MWFhNDNhYzk2NmVhYWVjZmNlYTdiMmY1MjE5ZWEwAfQTYFY-SRpe47_iE8fwLWKa3vi2"
+                 alt="Kalpana" width="200px" height="200px"class="rounded-circle img-responsive">
+              </div>
+              <div class="image-header" *ngIf="user==3000">
+                  <img src="https://lh3.googleusercontent.com/a-/AAuE7mAA1EiHqzgtO0oyLPeFDEQdlkDV5XoK0ldK79-L6A=s192"
+                   alt="Nireesha" width="200px" height="200px"class="rounded-circle img-responsive">
+                </div>
+                
+                <div class="image-header" *ngIf="user==4000">
+                    <img src="https://lh3.googleusercontent.com/a-/AAuE7mDkPtJqazf95GagxlsMXkgXbldwmmsFBKaKPsPkqA=s192"
+                     alt="Malar"  width="200px" height="200px" class="rounded-circle img-responsive">
+                  </div>
+                  <div class="image-header" *ngIf="user==5000">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmmW59QtohSFXnhiLAouVZv8gbgDly6Fywy7tkK4jz0S0El4K"
+                       alt="Nivedha"width="200px" height="200px" class="rounded-circle img-responsive">
+                    </div>
+          </div>
+      <div class="container">
+        <label for="user" style="color:rgb(17, 68, 141);"><b>Username</b></label>
+        <input type="text" id="user" [(ngModel)]="user" placeholder="Enter Username" name="user" required readonly>
+        
+    
+        <label for="pwd" style="color:rgb(17, 68, 141);"><b>Password</b></label>
+        <input type="password" id="pwd" [(ngModel)]="pwd" placeholder="Enter Password" name="pwd" required>
+        
+            
+        <button type="submit" name="submit">Login</button>
+     
+      </div>
+      <div>
+     
+        <input type="button" value="Forgot password?" (click) ="pswd()"/>
+        
+      </div> 
+    </form>
+    </div> 
+    </body>
+    
+    </html>

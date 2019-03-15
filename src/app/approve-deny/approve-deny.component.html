@@ -1,0 +1,98 @@
+<html>
+  <body>
+    <style>
+input[type=button], input[type=button], input[type=button] 
+{
+  background-color: rgb(17, 68, 141);
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/* form.groove {
+      border-style: groove;
+ 
+    } */
+.bg-image {
+    background-image: url("https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+   
+    height: 595px;
+    width:1350px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+    h2 {
+      color : rgb(17, 68, 141);
+    }
+    div{
+      text-align: center;
+      /* margin-right: 370px;
+      margin-left: 370px */
+    }
+   
+    </style>
+ <div>
+<div class="bg-image">
+   
+<h2>APPROVE/DENY FORM</h2>
+<br>
+<div class="d" align = "">
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EMPLOYEE ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+{{(employ | async )?.empId}}
+<br><br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EMPLOYEE NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+{{(employ | async )?.empName}}
+<br><br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;START DATE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+{{(leave | async )?.levStartDate}}
+<br><br>
+
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END DATE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+{{(leave | async )?.levEndDate}}
+<br><br>
+
+<b>&nbsp;AVAILABLE LEAVE BALANCE&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;</b>
+{{(employ | async )?.empAvlLeaveBal}}
+<br><br>
+
+<b>NUMBER OF DAYS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(leave | async )?.levNoOfDays}}
+<br><br>
+
+<b>&nbsp;&nbsp;&nbsp;LEAVE TYPE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(leave | async )?.levType}}
+<br><br>
+
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REASON &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(leave | async )?.levReason}}
+<br><br>
+<b>COMMENTS:</b>
+<div class="row">
+    <div class="col-100">
+      <!-- <label for=" Comments"> Comments</label> -->
+      
+    </div>
+    <br>
+
+    <div class="col-100">
+      <textarea id=" Comments" name="Comments" [(ngModel)]="obj.levMgrComments"  placeholder="Any comments.." style="height:1000px" style="width:350px"></textarea>
+    </div>
+  </div>
+
+<br>
+<input type="button" name="approve" (click)="approve()" class="btn btn-success" value="Approve">&nbsp;&nbsp;
+<input type="button" name="deny" (click)="deny()" class="btn btn-danger" value="Deny">&nbsp;&nbsp;
+<input type="button" (click)="cancel()" class="btn btn-primary" value="Cancel">
+<br><br>
+<h3 name = "result"><b>RESULT IS : {{msg}}</b></h3>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+  

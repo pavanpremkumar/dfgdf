@@ -1,0 +1,140 @@
+
+
+<html>
+    <body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+        table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #7aaed1}
+  
+  th {
+    background-color: rgb(17, 68, 141);
+    color: white;
+  }
+  
+
+  .bg-image {
+    background-image: url("https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+    /* background-color: #cccccc; */
+    height: 595px;
+    width:1350px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: rgb(17, 68, 141);
+}
+tr:hover {background-color:#9fcdec;}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+     </style>
+
+  <ul>
+      
+      <li><a (click)="dashboard()"  class="btn btn-primary">DashBoard</a></li>&nbsp;&nbsp;
+      <li><a class="active" >History</a></li>
+      <li><a (click)="pending()" class="btn btn-primary">Pending Leave</a></li>&nbsp;&nbsp;
+      <li><a (click)="apply()"  class="btn btn-primary">ApplyLeave</a></li>&nbsp;&nbsp;
+      <li style="float:right"><a (click)="employee()" class="btn btn-primary">SignOut</a></li>
+      
+      </ul>
+ 
+   <div class="bg-image">
+  <br/>
+  <div class="form-group">
+    <div class="input-group">
+      <!-- <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div> -->
+      <input type="text" class="form-control" name="searchString" placeholder="Search..." [(ngModel)]="searchString">
+    </div>
+  </div>
+<!-- </form> -->
+<table border="3">
+    <tbody class="employees">
+  <tr>
+    <th>levId</th>
+    <th>levNoOfDays</th>
+    <th>levstartDate</th>
+    <th>levEndDate</th>
+    <th>levType</th>
+    <th>levStatus</th>
+    <th>levSslStatus</th>
+    <th>levReason</th>
+    <th>levApplyDate</th>
+    <th>levMgrComments</th>
+    <th>empId</th>
+    <th>edit</th>
+
+  </tr>
+  <tr *ngFor="let emp of leavedetails | async |filterdata : {levStatus : searchString}" >
+    <td>{{emp.levId}}</td>
+    <td>{{emp.levNoOfDays}}</td>
+    <td>{{emp.levStartDate}}</td>
+    <td>{{emp.levEndDate}}</td>
+    <td>{{emp.levType}}</td>
+    <td>{{emp.levStatus}}</td>
+    <td>{{emp.levSslStatus}}</td>
+    <td>{{emp.levReason}}</td>
+    <td>{{emp.levApplyDate}}</td>
+    <td>{{emp.levMgrComments}}</td>
+    <td>{{emp.empId}}</td>
+    <div *ngIf="emp.levStatus == 'PENDING';then thenBlock; else elseBlock"></div>
+    
+    <ng-template #thenBlock>
+        <td><i class="fa fa-edit" (click) ="edit(emp.levId)"></i></td>      
+    </ng-template>
+    <ng-template #elseBlock>
+        <div><b>Leave Approved </b></div>
+      </ng-template>
+    <!-- <td>
+    <input type="button" value="login" (click) ="login(emp.levId)"/>
+    </td> -->
+  </tr>
+    </tbody>
+</table>
+  <br>
+  <!-- <input type="button" style="background-color: rgb(17, 68, 141);padding: 14px 28px;color: white;
+  cursor: pointer;" value="EditPendingLeave" (click) ="edit()"/> -->
+  
+</div>
+
+</body>
+</html>

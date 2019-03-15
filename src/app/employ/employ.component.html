@@ -1,0 +1,104 @@
+<html>
+  <body>
+    <style>
+             ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: rgb(17, 68, 141);
+}
+     h3{
+       color : rgb(17, 68, 141);
+     } 
+     img{
+       float: right;
+       border-radius: 50%;
+     }
+
+     </style>
+  <ul>
+      <li><a class="active">DashBoard</a></li>
+      <li><a (click)="history()" class="btn btn-primary">History</a></li>&nbsp;&nbsp;
+      <li><a (click)="pending()" class="btn btn-primary" id="approvedeny">Pending Leave</a></li>&nbsp;&nbsp;
+      <li><a (click)="apply()" class="btn btn-primary" id="applyLeave">ApplyLeave</a></li>&nbsp;&nbsp;
+      <li style="float:right"><a (click)="employee()"  class="btn btn-primary">SignOut</a></li>
+      </ul>
+  <h3><b>EMPLOYEE DETAILS</b></h3>
+
+  <div class="image">
+    <div class="image-header" *ngIf="empno==1000">
+      <img src="https://media.licdn.com/dms/image/C5103AQHX7eQ0lCXnmQ/profile-displayphoto-shrink_200_200/0?e=1556150400&v=beta&t=f6bZjtj2dn1-si8yf8z9-JXi4xgMURjVDM8lJKEXiFE"
+       alt="Sahil"style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+    </div>
+    <div class="image-header" *ngIf="empno==2000">
+        <img src="https://plus.google.com/u/0/_/focus/photos/public/AIbEiAIAAABDCI_NzuzCyJb5LCILdmNhcmRfcGhvdG8qKDQ1NDU0MWI5N2U0MWFhNDNhYzk2NmVhYWVjZmNlYTdiMmY1MjE5ZWEwAfQTYFY-SRpe47_iE8fwLWKa3vi2"
+         alt="Kalpana" style="width:170px;height:170px;margin-left:15px;"class="rounded-circle img-responsive">
+      </div>
+      <div class="image-header" *ngIf="empno==3000">
+          <img src="https://lh3.googleusercontent.com/a-/AAuE7mAA1EiHqzgtO0oyLPeFDEQdlkDV5XoK0ldK79-L6A=s192"
+           alt="Nireesha"style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+        </div>
+        
+        <div class="image-header" *ngIf="empno==4000">
+            <img src="https://lh3.googleusercontent.com/a-/AAuE7mDkPtJqazf95GagxlsMXkgXbldwmmsFBKaKPsPkqA=s192"
+             alt="Malar" style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+          </div>
+          <div class="image-header" *ngIf="empno==5000">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmmW59QtohSFXnhiLAouVZv8gbgDly6Fywy7tkK4jz0S0El4K"
+               alt="Nivedha"style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+            </div>
+  </div>
+<div id="hey">
+<b>EMPID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;</b>
+{{(employ | async)?.empId}}
+<br/>
+<b>NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </b>
+{{(employ | async)?.empName}}
+<br/>
+<b>EMAIL  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(employ | async)?.empEmail}}
+<br/>
+<b>MOBILE  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(employ | async)?.empMob}}
+<br/>
+<b>JOINDATE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(employ | async)?.empJoinDate}}
+<br/>
+<b>AVAILABLELEAVEBAL :&nbsp;&nbsp;</b>
+{{(employ | async)?.empAvlLeaveBal}}
+<br/>
+<b>DEPARTMENT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(employ | async)?.empDept}}
+<br/>
+<b>MANAGERID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+{{(employ | async)?.empMgrId}}
+<br/>
+</div>
+</body>
+</html>
+<br/>
+<hr>
+
+
+

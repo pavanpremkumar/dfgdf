@@ -1,0 +1,82 @@
+<html>
+    <body>
+      <style>
+ 
+       h3{
+         color :rgb(17, 68, 141);
+       } 
+       img {
+            float: right;
+            border-radius: 50%;
+          }
+        </style>
+
+<div class="image">
+    <div class="image-header" *ngIf="empno==1000">
+      <img src="https://media.licdn.com/dms/image/C5103AQHX7eQ0lCXnmQ/profile-displayphoto-shrink_200_200/0?e=1556150400&v=beta&t=f6bZjtj2dn1-si8yf8z9-JXi4xgMURjVDM8lJKEXiFE"
+       alt="Sahil"style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+    </div>
+    <div class="image-header" *ngIf="empno==2000">
+        <img src="https://lh3.googleusercontent.com/a-/AAuE7mBJRyb2OxKHyFraChQBaqqa5jwkCVPz6DBhNO4ccQ=s192"
+         alt="Kalpana" style="width:170px;height:170px;margin-left:15px;"class="rounded-circle img-responsive">
+      </div>
+      <div class="image-header" *ngIf="empno==3000">
+          <img src="https://lh3.googleusercontent.com/a-/AAuE7mAA1EiHqzgtO0oyLPeFDEQdlkDV5XoK0ldK79-L6A=s192"
+           alt="Nireesha" style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+        </div>
+        
+        <div class="image-header" *ngIf="empno==4000">
+            <img src="https://lh3.googleusercontent.com/a-/AAuE7mDkPtJqazf95GagxlsMXkgXbldwmmsFBKaKPsPkqA=s192"
+             alt="Malar"style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+          </div>
+          <div class="image-header" *ngIf="empno==5000">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmmW59QtohSFXnhiLAouVZv8gbgDly6Fywy7tkK4jz0S0El4K"
+               alt="Nivedha"style="width:170px;height:170px;margin-left:15px;" class="rounded-circle img-responsive">
+            </div>
+          </div>
+        
+  
+<h3>
+<b>MANAGER DETAILS</b>
+</h3>
+          
+<div *ngIf="empno == 0;then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <div><b>No Manager</b></div>
+</ng-template>
+<ng-template #elseBlock>
+  <div *ngIf="employ.empMgrId != 0">
+
+      <b>EMPID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</b>
+      {{(employ | async)?.empId}}
+      <br/>
+      <b>NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b> 
+      {{(employ | async)?.empName}}
+      <br/>
+      <b>EMAIL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </b>
+      {{(employ | async)?.empEmail}}
+      <br/>
+      <b>MOBILE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+      {{(employ | async)?.empMob}}
+      <br/> 
+      <b>JOINDATE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+      {{(employ | async)?.empJoinDate}}
+      <br/>
+      <b>AVAILABLELEAVEBAL&nbsp;:&nbsp;</b>
+      {{(employ | async)?.empAvlLeaveBal}}
+      <br/>
+      <b>DEPARTMENT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+      {{(employ | async)?.empDept}}
+      <br/>
+      <b>MANAGERID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+      {{(employ | async)?.empMgrId}}
+      <br/>
+  </div>
+</ng-template>
+</body>
+<hr>
+<br>
+
+</html>
+<br/>

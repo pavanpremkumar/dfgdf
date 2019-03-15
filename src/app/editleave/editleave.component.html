@@ -1,0 +1,95 @@
+<html>
+  <style>
+    div{
+      text-align: center;
+    }
+    .bg-image {
+  background-image: url("https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  /* background-color: #cccccc; */
+  height: 627px;
+  width:1350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+  </style>
+<div class="bg-image">
+<br>
+
+<h1 style= "color:rgb(17, 68, 141);text-align:center"><b>Edit Your Leave</b> </h1>
+
+<div>
+<form #userForm="ngForm" (ngSubmit)="apply(userForm)">
+    <div class="form-group">
+        <label for= "levId"><b><font size="4">Leave Id :</font></b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" required="required" [(ngModel)]="obj.levId" name="levId" #levId="ngModel" placeholder="Your lev id..." >  
+        <div *ngIf="levId.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+              <h6>Leave Id is Required.</h6>
+             </div>
+             
+            <br>
+             <br>
+        <label for= "levStartDate"><b><font size="4">Start Date :</font></b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="Date" required="required" [(ngModel)]="obj.levStartDate" name="levStartDate" #levStartDate="ngModel" placeholder="Your last name.." >  
+        <div *ngIf="levStartDate.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+              <h6>Start Date is Required.</h6>
+             </div>
+             <br>
+             <br>
+    </div>
+    <div class= "form-group">
+            <label for= "levEndDate"><b><font size="4">End Date :</font>&nbsp;</b> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type = "Date" class= "form-control"
+            id = "levEndDate" required="required"
+            [(ngModel)]= "obj.levEndDate" name="levEndDate" #levEndDate="ngModel" (change)="calculateDays()">
+            <div *ngIf="levEndDate.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                   <h6>End Date is Required.</h6> 
+                  </div>
+        </div>
+        <br>
+      
+        <div class="form-group">
+                <label for="levType"><b><font size="4">Leave Type :</font></b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select [(ngModel)]="obj.levType" name="levType" required="required" #levType="ngModel">
+                    <option value="EL">EL</option>
+                    <option value="PL">PL</option>
+                    <option value="ML">ML</option>
+                </select>
+        </div>
+        <br>
+        <div class= "form-group">
+                <label for= "levNoOfDays"><b><font size="4">Number of Days :</font></b> </label>
+                <input type = "number" class= "form-control" readonly
+                id = "levNoOfDays" required="required"
+                [(ngModel)]= "obj.levNoOfDays" name="levNoOfDays" #levNoOfDays="ngModel" >
+                <div *ngIf="levNoOfDays.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                        <h6>Leave Days is Required.</h6> 
+                       </div>
+            </div>
+            <br>
+        <div class= "form-group">
+                <label for= "levReason"><b><font size="4">Leave Reason :</font> </b></label>&nbsp;&nbsp;&nbsp;
+                <input type = "string" class= "form-control" size="30"
+                id = "levReason" required="required"
+                [(ngModel)]= "obj.levReason" name="levReason" #levReason="ngModel">
+                <div *ngIf="levReason.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                        <h6>Reason is Required.</h6> 
+                       </div>
+            </div>
+            <!-- <input type="button" (click)="apply()" value="Apply" >&nbsp;&nbsp; -->
+            <br>
+            <br>
+            <button class=button style="background-color: rgb(17, 68, 141);padding: 10px 20px;color: white;
+            cursor: pointer;">Apply</button>
+            
+            
+            &nbsp;&nbsp;&nbsp;<input type="button" style="background-color: rgb(17, 68, 141);padding: 10px 20px;color: white;
+                 cursor: pointer;" (click)="cancel()" value="Cancel" > 
+                 
+            <h3 *ngIf="isValidFormSubmitted == true">STATUS: {{this.msg}}</h3>
+    </form>
+  </div>
+</div>
+    </html>
